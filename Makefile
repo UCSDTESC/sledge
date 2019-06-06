@@ -7,15 +7,15 @@ build: build-server-js build-client-js build-client-css build-client-copy
 
 .PHONY: build-server-js
 build-server-js:
-	tsc --project tsconfig-server.json
+	node_modules/.bin/tsc --project tsconfig-server.json
 
 .PHONY: build-client-js
 build-client-js:
-	tsc --project tsconfig-client.json
+	node_modules/.bin/tsc --project tsconfig-client.json
 
 .PHONY: build-client-css
 build-client-css:
-	sass src/client/global.scss public/global.css
+	node_modules/.bin/sass src/client/global.scss public/global.css
 
 .PHONY: build-client-copy
 build-client-copy:
@@ -50,4 +50,4 @@ clean:
 
 .PHONY: start
 start: build
-	sledge
+	bin/sledge
